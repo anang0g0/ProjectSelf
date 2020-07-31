@@ -1376,7 +1376,7 @@ end
 def alp()
 
 
-h=[7,8,12,11,19,27,43,67,163]
+h=[3,4,7,8,11,19,43,67,163]
 jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-262537412640768000]
 
 # set a half of bit size random number
@@ -1449,14 +1449,15 @@ jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-2625374
 		  print "ii\n";
 		 end
 		 if(@V == -1)
-		  #p=inv(@CRV_a,@CRV_p)*(-3)%@CRV_p
-		  #print (@CRV_p-@CRV_a*p)%@CRV_p,"\n"
+		  p=inv(@CRV_a,@CRV_p)*(-3)%@CRV_p
+		  print (@CRV_p-@CRV_a*p)%@CRV_p,"\n"
 		  print p,"\n"
-		#c=PC(p,@CRV_p);
-		 # if(c != -1)
+		  c=PC(p,@CRV_p);
+		  if(c != -1)
 		   print "E' twist!\n"
-		   #print "a'=",@CRV_a=(@CRV_a*c*c%@CRV_p)-@CRV_p,"\n"
-		   #print "b'=",@CRV_b=(@CRV_b*c**3)%@CRV_p,"\n"
+		   print "a'=",@CRV_a=(@CRV_a*c*c%@CRV_p)-@CRV_p,"\n"
+		   print "b'=",@CRV_b=(@CRV_b*c**3)%@CRV_p,"\n"
+                  end
 		   y=PC(@CRV_b,@CRV_p)
 		   if(y != -1)
 			mktable(0,y)
