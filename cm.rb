@@ -1,5 +1,5 @@
 #! /usr/local/bin/ruby
-# coding: cp932
+# coding: utf-8
 # /home/test/hp13/ffftp/cm.rb
 # Created: Oct 03,2006 19:00:33
 # Author: tcshacina
@@ -840,7 +840,7 @@ f=0
  for a in 2..100
   if(exp(a,(n-1),n)!=1)
    f=1
-#   print n," à·Ç§ÅIÇ±ÇÒÇ»ÇÃëfêîÇ∂Ç·Ç»Ç¢!!",a,"\n"
+#   print n," ÈÅï„ÅÜÔºÅ„Åì„Çì„Å™„ÅÆÁ¥†Êï∞„Åò„ÇÉ„Å™„ÅÑ!!",a,"\n"
    print "."
    break
   end
@@ -1203,22 +1203,18 @@ l=0
   if(k>@CRV_n)
     k=k%@CRV_n
   end
-
   for j in 0..N
     ki[j]=0
   end
-
   ll=k
   while(ll>0)
     ll=(ll>>1)
     l=l+1
   end
-
   ll=k
   if(j!=0)
     j=0
   end
-
 #  if(((kk^(1<<i))>>i)%2 == 0) #testbit(kk,i) <- shippai
   for i in 0..l-1
     if(ll%2 == 1)
@@ -1227,7 +1223,6 @@ l=0
     end
     ll=(ll>>1)
   end
-
   @Pub_key_x=@le_x[ki[0]]
   @Pub_key_y=@le_y[ki[0]]
 
@@ -1376,7 +1371,8 @@ end
 def alp()
 
 
-h=[3,4,7,8,11,19,43,67,163]
+  h=[7,8,12,11,19,27,43,67,163]
+  #h=[1,2,3,7,11,19,43,67,163]
 jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-262537412640768000]
 
 # set a half of bit size random number
@@ -1452,22 +1448,22 @@ jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-2625374
 		  p=inv(@CRV_a,@CRV_p)*(-3)%@CRV_p
 		  print (@CRV_p-@CRV_a*p)%@CRV_p,"\n"
 		  print p,"\n"
-		  c=PC(p,@CRV_p);
+		c=PC(p,@CRV_p);
 		  if(c != -1)
 		   print "E' twist!\n"
-		   print "a'=",@CRV_a=(@CRV_a*c*c%@CRV_p)-@CRV_p,"\n"
-		   print "b'=",@CRV_b=(@CRV_b*c**3)%@CRV_p,"\n"
-                  end
-		   y=PC(@CRV_b,@CRV_p)
-		   if(y != -1)
-			mktable(0,y)
-			ellip(m2)
-			if(@V==0)
-			  bit(m2); print "-bit_m2 prime\n"; w();
-			  print "(•ÅÕ•)≤≤!!\n";
-			end
-		   end
-		  #end
+		   #print "a'=",@CRV_a=(@CRV_a*c*c%@CRV_p)-@CRV_p,"\n"
+		   #print "b'=",@CRV_b=(@CRV_b*c**3)%@CRV_p,"\n"
+		   #y=PC(@CRV_b,@CRV_p)
+		   #if(y != -1)
+		#	mktable(0,y)
+		#	ellip(oo+1+ii)
+		#	if(@V==0)
+		#	  bit(m2); print "-bit_m2 prime\n"; w();
+		#	  print "(ÔΩ•‚àÄÔΩ•)ÔΩ≤ÔΩ≤!!\n";
+                 #         exit();
+		#	end
+		 #  end
+		  end
 		 end
 		#end
 	      end
@@ -1486,7 +1482,7 @@ jj=[3375,-8000,-54000,-32768,-884736,-12288000,-884736000,-147197952000,-2625374
 			ellip(m2)
 			if(@V==0)
 			  bit(mm); print "-bit_m2 prime\n"; w();
-			  print "(•ÅÕ•)≤≤!!\n";
+			  print "(ÔΩ•‚àÄÔΩ•)ÔΩ≤ÔΩ≤!!\n";
 			end
 		  end
 		 end
@@ -1508,5 +1504,3 @@ end
 #fr(101459693097608319042758415833807677670847628544715540724500026735349301068515392099767184641851031376113522183648115338953972239406909609350543459251533166139494901562515248706419170211273185584865994044063658192209029166200554581462882695234974056443041025544008790901161520035530940963382832098363453248929)
 
 alp()
-
-
